@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="courses.xsl"?>
+
+<cart xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="courses.xsd">
+  <course>
+    <name>Web Development</name>
+    <price>199</price>
+    <duration>3 Months</duration>
+    <instructor>Prerana</instructor>
+  </course>
+  <course>
+    <name>Data Science</name>
+    <price>299</price>
+    <duration>6 Months</duration>
+    <instructor>Mihir</instructor>
+  </course>
+</cart>
+
+
+<!-- 22. Write a XML schema to describe and validate the XML data. -->
