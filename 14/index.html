@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Series</title>
+</head>
+<body>
+
+<h2>Fibonacci Series</h2>
+<p id="fibo"></p>
+
+<script>
+    // Function to generate Fibonacci series
+    function generateFibonacci(n) {
+        let fib = [0, 1];
+        for (let i = 2; i < n; i++) {
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        return fib;
+    }
+
+    // Number of terms
+    let numberOfTerms = 10;
+
+    // Get the result and join with commas
+    let result = generateFibonacci(numberOfTerms).join(", ");
+
+    // Display on the HTML page
+    document.getElementById("fibo").innerHTML = result;
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Series</title>
+</head>
+<body>
+
+<h2>Fibonacci Series Generator</h2>
+
+<label for="num">Enter number of terms:</label>
+<input type="number" id="num" min="1">
+<button onclick="showFibonacci()">Generate</button>
+
+<p id="fibo"></p>
+
+<script>
+    // Function to generate Fibonacci series
+    function generateFibonacci(n) {
+        let fib = [0, 1];
+        for (let i = 2; i < n; i++) {
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        return fib.slice(0, n); // in case n is 1 or 2
+    }
+
+    // Function to handle button click
+    function showFibonacci() {
+        let numberOfTerms = parseInt(document.getElementById("num").value);
+        if (isNaN(numberOfTerms) || numberOfTerms < 1) {
+            document.getElementById("fibo").innerHTML = "Please enter a valid number.";
+            return;
+        }
+
+        let result = generateFibonacci(numberOfTerms).join(", ");
+        document.getElementById("fibo").innerHTML = result;
+    }
+</script>
+
+</body>
+</html> -->
+
+
+
+
+<!-- 14. Create Fibonacci series in JavaScript and display on HTML -->

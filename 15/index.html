@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up & Login</title>
+</head>
+<body>
+
+  <h2>Sign Up</h2>
+  <input type="text" id="signupUser" placeholder="Username"><br><br>
+  <input type="password" id="signupPass" placeholder="Password"><br><br>
+  <button onclick="signUp()">Sign Up</button>
+
+  <h2>Login</h2>
+  <input type="text" id="loginUser" placeholder="Username"><br><br>
+  <input type="password" id="loginPass" placeholder="Password"><br><br>
+  <button onclick="login()">Login</button>
+
+  <h2 id="welcomeMsg"></h2>
+
+  <script>
+    let savedUser = "";
+    let savedPass = "";
+
+    function signUp() {
+      savedUser = document.getElementById("signupUser").value;
+      savedPass = document.getElementById("signupPass").value;
+      alert("Sign up successful!");
+    }
+
+    function login() {
+      let user = document.getElementById("loginUser").value;
+      let pass = document.getElementById("loginPass").value;
+
+      if (user === savedUser && pass === savedPass) {
+        document.getElementById("welcomeMsg").innerText = "Welcome, " + user + "!";
+      } else {
+        alert("Invalid login!");
+      }
+    }
+  </script>
+
+</body>
+</html>

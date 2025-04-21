@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form id="regForm" onsubmit="return registerUser()">
+    <label>First Name:</label><br>
+    <input type="text" id="fname" required><br><br>
+
+    <label>Last Name:</label><br>
+    <input type="text" id="lname" required><br><br>
+
+    <label>Organization:</label><br>
+    <input type="text" id="org" required><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female<br><br>
+
+    <label>Hobbies:</label><br>
+    <input type="checkbox" value="Reading" id="h1"> Reading
+    <input type="checkbox" value="Traveling" id="h2"> Traveling
+    <input type="checkbox" value="Coding" id="h3"> Coding<br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <h3>Submitted Details:</h3>
+  <div id="output"></div>
+
+  <script>
+    function registerUser() {
+      let fname = document.getElementById("fname").value;
+      let lname = document.getElementById("lname").value;
+      let org = document.getElementById("org").value;
+
+      let genderElems = document.getElementsByName("gender");
+      let gender = "";
+      for (let g of genderElems) {
+        if (g.checked) {
+          gender = g.value;
+        }
+      }
+
+      let hobbies = [];
+      if (document.getElementById("h1").checked) hobbies.push("Reading");
+      if (document.getElementById("h2").checked) hobbies.push("Traveling");
+      if (document.getElementById("h3").checked) hobbies.push("Coding");
+
+      if (fname === "" || lname === "" || org === "" || gender === "") {
+        alert("Please fill all required fields!");
+        return false;
+      }
+
+      let output = `
+        <p><strong>First Name:</strong> ${fname}</p>
+        <p><strong>Last Name:</strong> ${lname}</p>
+        <p><strong>Organization:</strong> ${org}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Hobbies:</strong> ${hobbies.join(", ")}</p>
+      `;
+      document.getElementById("output").innerHTML = output;
+
+      // Prevent form from actually submitting
+      return false;
+    }
+  </script>
+
+</body>
+</html>

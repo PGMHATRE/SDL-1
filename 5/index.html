@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Area Calculator using Inheritance</h2>
+
+<form method="post">
+    <input type="radio" name="shape" value="triangle" required> Triangle<br>
+    <input type="radio" name="shape" value="square"> Square<br>
+    <input type="radio" name="shape" value="circle"> Circle<br><br>
+
+    Enter value 1: <input type="text" name="val1"><br>
+    Enter value 2 (if needed): <input type="text" name="val2"><br><br>
+
+    <input type="submit" name="submit" value="Calculate Area">
+</form>
+
+<?php
+// Base class
+class Shape {
+    public function area() {
+        return 0;
+    }
+}
+
+// Triangle class
+class Triangle extends Shape {
+    public $base, $height;
+    function __construct($b, $h) {
+        $this->base = $b;
+        $this->height = $h;
+    }
+    function area() {
+        return 0.5 * $this->base * $this->height;
+    }
+}
+
+// Square class
+class Square extends Shape {
+    public $side;
+    function __construct($s) {
+        $this->side = $s;
+    }
+    function area() {
+        return $this->side * $this->side;
+    }
+}
+
+// Circle class
+class Circle extends Shape {
+    public $radius;
+    function __construct($r) {
+        $this->radius = $r;
+    }
+    function area() {
+        return 3.14 * $this->radius * $this->radius;
+    }
+}
+
+if (isset($_POST['submit'])) {
+    $shape = $_POST['shape'];
+    $v1 = $_POST['val1'];
+    $v2 = $_POST['val2'];
+
+    if ($shape == "triangle") {
+        $obj = new Triangle($v1, $v2);
+        echo "Area of Triangle = " . $obj->area();
+    }
+    elseif ($shape == "square") {
+        $obj = new Square($v1);
+        echo "Area of Square = " . $obj->area();
+    }
+    elseif ($shape == "circle") {
+        $obj = new Circle($v1);
+        echo "Area of Circle = " . $obj->area();
+    }
+}
+?>
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+    
+<form method="post">
+<input type="radio" name="shape" value="traingle" > traingle </input>
+<input type="radio" name="shape" value="circle" > circle </input>
+<input type="radio" name="shape" value="square" > square </input><br>
+
+Enter 1: <input type="text" name="val1">
+Enter 2: <input type="text" name="val2"><br>
+
+
+<input type="submit" name="submit" value="submit">
+</form>
+</body>
+
+
+
+</html> -->
+
+
+<!-- <?php
+
+class shape
+{
+    public function area()
+    {
+        return 0;
+    }
+}
+
+
+
+class Traingle extends shape
+{
+    public $base, $height;
+    
+    public function area()
+    {
+
+        return $this->base * $this->height * 0.5;
+    }
+
+}
+
+
+class circle extends shape
+{
+    public $radius;
+    
+    public function area()
+    {
+
+        return $this->radius * $this->radius * 3.14;
+    }
+
+}
+
+
+class square extends shape
+{
+    public $side;
+    
+    public function area()
+    {
+
+        return $this->side * $this->side;
+    }
+
+}
+
+
+if(isset($_POST['submit']))
+{
+    $shape=$_POST['shape'];
+    $p1=$_POST['val1'];
+    $p2=$_POST['val2'];
+
+
+    if($shape=="traingle")
+    {
+        $obj= new Traingle();
+        $obj->base=$p1;
+        $obj->height=$p2;
+
+        echo "area". $obj->area();
+    }
+    else if($shape=="circle")
+    {
+        $obj= new circle();
+        $obj->radius=$p1;
+        
+        echo "area". $obj->area();
+    }
+    else if($shape=="square")
+    {
+        $obj= new square();
+        $obj->side=$p1;
+        echo "area".$obj->area();
+    }
+    else {
+        echo "Please enter valid numeric values.";
+    }
+}
+?>  -->
+
+
+
+
+<!-- 5. Create a webpage using PHP to demonstrate the Inheritance concept such as: to create a Class shape and its subclass triangle, square and circle and display area of the selected shape.( use the concept of Inheritance) Display menu( use radio button) a) Triangle b) Square c) Circle -->
